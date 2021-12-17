@@ -1,5 +1,3 @@
-import os
-
 from brownie import(
     accounts,
     config,
