@@ -1,21 +1,26 @@
 dotenv: .env
 
-dependencies: 
-  # - <organization/repo>@<version>
-  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+dependencies:
+    # - <organization/repo>@<version>
+    - smartcontractkit/chainlink-brownie-contracts@1.1.1
 
 compiler:
-  evm_version: null
-  solc:
-    remappings:
-      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
-    vyper:
-        version: null
+    evm_version: null
+    solc:
+        remappings:
+            - "@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1"
+        vyper:
+            version: null
 
 wallets:
     development:
         primary_public_key: ${GANACHE_1_PUBLIC_KEY}
         secondary_public_key: ${GANACHE_2_PUBLIC_KEY}
+        primary_private_key: ${GANACHE_1_PRIVATE_KEY}
+        secondary_private_key: ${GANACHE_2_PRIVATE_KEY}
+    mainnet-fork-dev:
+        primary_private_key: ${PRIMARY_PRIVATE_KEY}
+        secondary_private_key: ${SECONDARY_PRIVATE_KEY}
     rinkeby:
         primary_private_key: ${PRIMARY_PRIVATE_KEY}
         secondary_private_key: ${SECONDARY_PRIVATE_KEY}
@@ -24,7 +29,7 @@ wallets:
         secondary_private_key: ${SECONDARY_PRIVATE_KEY}
     ganache-cli-local:
         primary_public_key: ${GANACHE_1_PUBLIC_KEY}
-        secondary_public_key: ${GANACHE_2_PUBLIC_KEY}        
+        secondary_public_key: ${GANACHE_2_PUBLIC_KEY}
 
 project_structure:
     build: build
@@ -62,6 +67,9 @@ networks:
     kovan:
         eth_usd_price_feed: "0x9326BFA02ADD2366b30bacB125260Af641031331"
         verify: True
+    mainnet-fork-dev:
+        eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+        verify: False
     ganache-cli-local:
         gas_limit: max
         gas_buffer: 1
@@ -101,5 +109,4 @@ hypothesis:
         shrink: true
 
 autofetch_sources: false
-dependencies: null
 dev_deployment_artifacts: false
