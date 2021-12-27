@@ -19,8 +19,8 @@ wallets:
         primary_private_key: ${GANACHE_1_PRIVATE_KEY}
         secondary_private_key: ${GANACHE_2_PRIVATE_KEY}
     mainnet-fork-dev:
-        primary_private_key: ${PRIMARY_PRIVATE_KEY}
-        secondary_private_key: ${SECONDARY_PRIVATE_KEY}
+        primary_private_key: ${GANACHE_1_PRIVATE_KEY}
+        secondary_private_key: ${GANACHE_2_PRIVATE_KEYs}
     rinkeby:
         primary_private_key: ${PRIMARY_PRIVATE_KEY}
         secondary_private_key: ${SECONDARY_PRIVATE_KEY}
@@ -69,6 +69,10 @@ networks:
         verify: True
     mainnet-fork-dev:
         eth_usd_price_feed: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419"
+        cmd_settings:
+            port: 8555
+            chain_id: 1447
+            mnemonic: nerve alone rebuild ability bean rare moral belt saddle census normal trend
         verify: False
     ganache-cli-local:
         gas_limit: max
